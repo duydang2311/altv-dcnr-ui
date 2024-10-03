@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-family-body: Poppins;
+  --font-family-title: 'Afacad Flux';
+  --default-font-family: var(--font-family-body);
+}
+
+@layer base {
+  :root {
+    font-size: calc(1.85vmin + 0.5vmax);
+    line-height: 1;
+
+    color-scheme: light;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
