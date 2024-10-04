@@ -10,6 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@altv/types-webview": "^16.2.1",
     "@tailwindcss/postcss": "^4.0.0-alpha.25",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
