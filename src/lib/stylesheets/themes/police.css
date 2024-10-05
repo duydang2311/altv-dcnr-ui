@@ -1,0 +1,10 @@
+@layer base {
+  :root {
+    --theme-tw-primary: 214.1 95% 47.3%;
+    --theme-tw-primary-2: 214.1 95% 52.3%;
+    --theme-tw-primary-border: 214.1 95% 57.3%;
+    --theme-tw-primary-hover: 214.1 95% 50.3%;
+    --theme-tw-primary-active: 214.1 95% 50.3%;
+    --theme-tw-primary-fg: 0 0% 100%;
+  }
+}

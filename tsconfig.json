@@ -2,13 +2,24 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client", "@altv/types-webview", "./src/index.d.ts"],
+    "types": [
+      "vite/client",
+      "@altv/types-webview",
+      "unplugin-icons/types/solid",
+      "./src/index.d.ts"
+    ],
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "$lib/*": ["./src/lib/*"],
+      "~/*": ["./src/*"]
+    }
   }
 }

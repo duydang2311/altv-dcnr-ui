@@ -1,21 +1,30 @@
-@import 'tailwindcss';
+@import 'lib/stylesheets/preflight.css';
+@import 'lib/assets/fonts/Inter/font_face.css';
+@import 'lib/stylesheets/themes/neutral.css';
+@import 'lib/stylesheets/themes/police.css';
 
-@theme {
-  --font-family-body: Poppins;
-  --font-family-title: 'Afacad Flux';
-  --default-font-family: var(--font-family-body);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
-    font-size: calc(1.85vmin + 0.5vmax);
+    font-size: calc(1vmin + 0.7vmax);
     line-height: 1;
 
-    color-scheme: light;
+    user-select: none;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @apply font-body text-base-fg;
+  }
+
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-optical-sizing: auto;
+    }
   }
 }
