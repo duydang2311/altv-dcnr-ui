@@ -1,0 +1,45 @@
+@import 'lib/stylesheets/preflight.css';
+@import 'lib/assets/fonts/Inter/font_face.css';
+@import 'lib/stylesheets/themes/neutral.css';
+@import 'lib/stylesheets/themes/police.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		font-size: calc(1.25vmin + 0.5vmax);
+		font-weight: 300;
+		line-height: 1;
+
+		user-select: none;
+
+		font-synthesis: none;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		@apply font-body text-base-fg;
+	}
+
+	@supports (font-variation-settings: normal) {
+		:root {
+			font-optical-sizing: auto;
+		}
+	}
+
+	:where(.overlap) {
+		display: grid;
+
+		& > * {
+			grid-column: 1/2;
+			grid-row: 1/2;
+		}
+
+		&.overlap-center {
+			place-content: center;
+			place-items: center;
+		}
+	}
+}
