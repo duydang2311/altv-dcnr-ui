@@ -5,8 +5,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				body: 'InterVariable, ui-system, sans-serif',
-				title: 'InterVariable, ui-system, sans-serif',
+				body: 'var(--font-family-body)',
+				title: 'var(--font-family-title)',
 			},
 			colors: {
 				primary: {

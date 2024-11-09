@@ -1,6 +1,6 @@
 import { mount } from 'svelte';
-import 'svelte-ripple-action/ripple.css';
 import './app.css';
+import './ripple.css';
 import App from './App.svelte';
 
 /* polyfills */

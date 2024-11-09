@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { ripple } from 'svelte-ripple-action';
 	import type { DiscordUser } from './+page.svelte';
 	import Discord from '~icons/custom/discord-black';
+	import Button from '$lib/components/Button.svelte';
 
 	const { user, onBack }: { user: DiscordUser; onBack: () => void } =
 		$props();
@@ -20,25 +20,12 @@
 	<p class="text-4xl font-normal">{user.username}</p>
 </div>
 <div class="flex gap-4 justify-center mt-4 mx-auto">
-	<button
-		type="button"
-		class="group flex-1 relative font-title bg-base rounded-sm duration-75 hover:bg-base-hover active:bg-base-active text-base-fg
-          px-6 py-1.5 flex items-center justify-center gap-3 transition ease-in-out border border-base-border"
-		use:ripple={{
-			color: 'color-mix(in srgb, var(--theme-base-fg) 8%, transparent)',
-		}}
-		onclick={onBack}
-	>
-		Back
-	</button>
-	<button
-		class="group flex-1 relative font-title bg-primary rounded-sm duration-75 hover:bg-primary-hover active:bg-primary-active text-primary-fg
-          px-6 py-1.5 flex items-center justify-center gap-3 transition ease-in-out border border-primary-border min-w-max"
-		use:ripple={{
-			color: 'color-mix(in srgb, var(--theme-base-fg) 12%, transparent)',
-		}}
+	<Button variant="base" type="button" onclick={onBack}>Back</Button>
+	<Button
+		variant="primary"
+		class="flex items-center justify-center gap-3 min-w-max"
 	>
 		<Discord />
 		Continue
-	</button>
+	</Button>
 </div>

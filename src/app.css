@@ -3,11 +3,19 @@
 @import 'lib/stylesheets/themes/neutral.css';
 @import 'lib/stylesheets/themes/police.css';
 
+@import 'lib/stylesheets/components/c-button.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+	:root {
+		--cubic-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+		--font-family-body: InterVariable, ui-system, sans-serif;
+		--font-family-title: InterVariable, ui-system, sans-serif;
+	}
+
 	:root {
 		font-size: calc(1.25vmin + 0.5vmax);
 		font-weight: 300;
@@ -20,7 +28,8 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
-		@apply font-body text-base-fg;
+		font-family: var(--font-family-body);
+		color: var(--theme-base-fg);
 	}
 
 	@supports (font-variation-settings: normal) {

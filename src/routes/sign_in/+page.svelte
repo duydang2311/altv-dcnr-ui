@@ -9,11 +9,11 @@
 
 <script lang="ts">
 	import AuroraBackground from '$lib/components/AuroraGradient.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import { tsap } from '$lib/utils/transitions';
 	import { onMount } from 'svelte';
-	import { ripple } from 'svelte-ripple-action';
 	import Discord from '~icons/custom/discord-black';
 	import DiscordSignIn from './DiscordSignIn.svelte';
-	import { tsap } from '$lib/utils/transitions';
 
 	let discordUser = $state.raw<DiscordUser | null>(null);
 
@@ -35,32 +35,29 @@
 	<div class="overlap overlap-center">
 		{#if discordUser == null}
 		 <div
-			in:tsap={(node, gsap) => gsap.from(node, { scale: 1.05, opacity: 0, duration: 0.4, ease: 'power1.out' })}
+			in:tsap={(node, gsap) => gsap.from(node, { scale: 1.05, y: '0.25rem', opacity: 0, duration: 0.4, ease: 'power1.out' })}
 			out:tsap={(node, gsap) => gsap.to(node, { scale: 0.95, opacity: 0, duration: 0.1, ease: 'power1.in' })}
 		 >
-			<button
+			<Button
 				type="button"
-				class="group relative font-title bg-primary rounded-sm hover:bg-primary-hover active:bg-primary-active text-primary-fg
-			px-6 py-1.5 flex items-center gap-3 transition ease-in-out border border-primary-border"
-				use:ripple={{
-					color: 'color-mix(in srgb, var(--theme-primary-fg) 12%, transparent)',
-				}}
+				class="group relative flex items-center gap-3"
+				variant="primary"
 				onclick={() => {
 					alt.emit('sign-in.discord.request');
-					discordUser = {
-						id: '287955978215882752',
-						username: 'duydang',
-						avatar: '56d1da76fcc4a603e50495d6472b30da',
-					};
+					// discordUser = {
+					// 	id: '287955978215882752',
+					// 	username: 'duydang',
+					// 	avatar: '56d1da76fcc4a603e50495d6472b30da',
+					// };
 				}}
 			>
 				<Discord />
 				Sign in with Discord
-			</button>
+			</Button>
 		 </div>
 		{:else}
 		<div
-			in:tsap={(node, gsap) => gsap.from(node, { scale: 1.05, opacity: 0, duration: 0.4, ease: 'power1.out' })}
+			in:tsap={(node, gsap) => gsap.from(node, { scale: 1.05, y: '0.25rem', opacity: 0, duration: 0.4, ease: 'power1.out' })}
 			out:tsap={(node, gsap) => gsap.to(node, { scale: 0.95, opacity: 0, duration: 0.1, ease: 'power1.in' })}
 		>
 			<DiscordSignIn user={discordUser} onBack={() => {
