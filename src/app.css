@@ -1,54 +1,54 @@
 @import 'lib/stylesheets/preflight.css';
 @import 'lib/assets/fonts/Inter/font_face.css';
 @import 'lib/stylesheets/themes/neutral.css';
-@import 'lib/stylesheets/themes/police.css';
+@import 'lib/stylesheets/themes/robber.css';
 
 @import 'lib/stylesheets/components/c-button.css';
+@import 'lib/stylesheets/components/c-spinner.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-	:root {
-		--cubic-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-		--font-family-body: InterVariable, ui-system, sans-serif;
-		--font-family-title: InterVariable, ui-system, sans-serif;
-	}
+    :root {
+        --cubic-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+        --font-family-body: InterVariable, ui-system, sans-serif;
+        --font-family-title: InterVariable, ui-system, sans-serif;
+    }
 
-	:root {
-		font-size: calc(1.25vmin + 0.5vmax);
-		font-weight: 300;
-		line-height: 1;
+    :root {
+        font-size: calc(1.25vmin + 0.5vmax);
+        line-height: 1;
 
-		user-select: none;
+        cursor: default;
 
-		font-synthesis: none;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 
-		font-family: var(--font-family-body);
-		color: var(--theme-base-fg);
-	}
+        font-family: var(--font-family-body);
+        color: var(--theme-base-fg);
+    }
 
-	@supports (font-variation-settings: normal) {
-		:root {
-			font-optical-sizing: auto;
-		}
-	}
+    @supports (font-variation-settings: normal) {
+        :root {
+            font-optical-sizing: auto;
+        }
+    }
 
-	:where(.overlap) {
-		display: grid;
+    :where(.overlap) {
+        display: grid;
 
-		& > * {
-			grid-column: 1/2;
-			grid-row: 1/2;
-		}
+        & > * {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
 
-		&.overlap-center {
-			place-content: center;
-			place-items: center;
-		}
-	}
+        &.overlap-center {
+            place-content: center;
+            place-items: center;
+        }
+    }
 }

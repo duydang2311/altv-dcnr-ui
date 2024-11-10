@@ -1,42 +1,53 @@
 .c-button {
-	font-family: var(--font-family-title);
-	color: var(--_color);
-	background-color: var(--_bg);
-	border-radius: theme('borderRadius[sm]');
-	transition: background-color 75ms var(--cubic-in-out),
-		outline 50ms var(--cubic-in-out);
-	padding: theme('padding[1.5]') theme('padding[6]');
-	border: 1px solid var(--_border);
-	outline: transparent 0 none;
+    --_duration: 75ms;
 
-	&:focus-visible {
-		outline: var(--_outline) 2px solid;
-		outline-offset: 2px;
-	}
+    font-family: var(--font-family-title);
+    color: var(--_color);
+    background-color: var(--_bg);
+    border-radius: theme('borderRadius[sm]');
+    transition: background-color var(--_duration) var(--cubic-in-out),
+        color var(--_duration) var(--cubic-in-out),
+        border-color var(--_duration) var(--cubic-in-out),
+        outline 50ms var(--cubic-in-out);
+    padding: theme('padding[1.5]') theme('padding[6]');
+    border: 1px solid var(--_border);
+    outline: transparent 0 none;
+
+    &:focus-visible {
+        outline: var(--_outline) 2px solid;
+        outline-offset: 2px;
+    }
 }
 
 .c-button--base {
-	--_color: var(--theme-base-fg);
-	--_bg: var(--theme-base);
-	--_border: var(--theme-base-border);
-	--_outline: hsl(var(--theme-tw-base-fg) / 0.6);
-	&:hover {
-		--_bg: var(--theme-base-hover);
-	}
-	&:active {
-		--_bg: var(--theme-base-active);
-	}
+    --_color: var(--theme-base-fg);
+    --_bg: var(--theme-base);
+    --_border: var(--theme-base-border);
+    --_outline: hsl(var(--theme-tw-base-fg) / 0.6);
+    &:hover {
+        --_bg: var(--theme-base-hover);
+    }
+    &:active {
+        --_bg: var(--theme-base-active);
+    }
 }
 
 .c-button--primary {
-	--_color: var(--theme-primary-fg);
-	--_bg: var(--theme-primary);
-	--_border: var(--theme-primary-border);
-	--_outline: var(--_border);
-	&:hover {
-		--_bg: var(--theme-primary-hover);
-	}
-	&:active {
-		--_bg: var(--theme-primary-active);
-	}
+    --_color: var(--theme-primary-fg);
+    --_bg: var(--theme-primary);
+    --_border: var(--theme-primary-border);
+    --_outline: var(--_border);
+    &:hover {
+        --_bg: var(--theme-primary-hover);
+    }
+    &:active {
+        --_bg: var(--theme-primary-active);
+    }
+}
+
+.c-button:disabled {
+    --_duration: 200ms;
+    --_color: var(--theme-base-fg-disabled);
+    --_bg: var(--theme-base-disabled);
+    --_border: var(--theme-base-border-disabled);
 }

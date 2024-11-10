@@ -10,22 +10,26 @@
 <script lang="ts">
 	import AuroraBackground from '$lib/components/AuroraGradient.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import { tsap } from '$lib/utils/transitions';
-	import { onMount } from 'svelte';
+	import { iconScale, tsap } from '$lib/utils/transitions';
 	import Discord from '~icons/custom/discord-black';
 	import DiscordSignIn from './DiscordSignIn.svelte';
+	import { useRuntime } from '$lib/contexts/runtime';
+	import { E } from '$lib/utils/fun';
+	import Spinner from '$lib/components/Spinner.svelte';
 
+	const { messaging } = useRuntime();
 	let discordUser = $state.raw<DiscordUser | null>(null);
+	let status = $state.raw<'pending' | null>(null);
 
-	onMount(() => {
-		const handleDiscordRequest = (user: DiscordUser) => {
-			discordUser = user;
-		};
-		alt.on('sign-in.discord.request', handleDiscordRequest);
-		return () => {
-			alt.off('sign-in.discord.request', handleDiscordRequest);
-		};
-	});
+	const handleSignInDiscord = async () => {
+		status = 'pending';
+		const either = await messaging.send<[DiscordUser]>('sign-in.discord.request')();
+		status = null;
+
+		if (E.isRight(either)) {
+			discordUser = either.right[0];
+		}
+	}
 </script>
 
 <div class="fixed inset-0 bg-black/80"></div>
@@ -42,16 +46,26 @@
 				type="button"
 				class="group relative flex items-center gap-3"
 				variant="primary"
-				onclick={() => {
-					alt.emit('sign-in.discord.request');
-					// discordUser = {
-					// 	id: '287955978215882752',
-					// 	username: 'duydang',
-					// 	avatar: '56d1da76fcc4a603e50495d6472b30da',
-					// };
-				}}
+				onclick={handleSignInDiscord}
+				disabled={status != null}
 			>
-				<Discord />
+				<div class="overlap overlap-center">
+					{#if status === 'pending'}
+					<div
+						in:tsap={iconScale.in()}
+						out:tsap={iconScale.out()}
+					>
+						<Spinner />
+					</div>
+					{:else}
+					<div
+						in:tsap={iconScale.in()}
+						out:tsap={iconScale.out()}
+					>
+						<Discord />
+					</div>
+					{/if}
+				</div>
 				Sign in with Discord
 			</Button>
 		 </div>

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import tailwindcssMotion from 'tailwindcss-motion';
 
 export default {
 	content: ['./src/**/*.svelte'],
@@ -41,6 +42,7 @@ export default {
 			},
 		},
 	},
+	plugins: [tailwindcssMotion],
 	corePlugins: {
 		preflight: false,
 	},
