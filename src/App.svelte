@@ -26,6 +26,8 @@
             }
         };
 
+        // Router.mount('gamemode_selection');
+
         alt.on('router.mount', mount);
         alt.on('router.unmount', unmount);
         return () => {
@@ -36,11 +38,13 @@
 </script>
 
 {#each Object.entries(Router.routes) as [route, value] (route)}
-    {#await value.lazyComponent then Component}
-        <div class="fixed max-w-screen max-h-screen overflow-visible">
-            <LifecycleAwareRoute {route}>
-                <Component {...value.props} />
-            </LifecycleAwareRoute>
-        </div>
-    {/await}
+    {#if value}
+        {#await value.lazyComponent then Component}
+            <div class="fixed max-w-screen max-h-screen overflow-visible">
+                <LifecycleAwareRoute {route}>
+                    <Component {...value.props} />
+                </LifecycleAwareRoute>
+            </div>
+        {/await}
+    {/if}
 {/each}

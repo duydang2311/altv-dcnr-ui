@@ -10,10 +10,11 @@
     interface Props extends HTMLButtonAttributes
     {
         variant?: 'base' | 'primary';
+        icon?: boolean;
     }
 
-    const { children, variant = 'base', class: cls, ...props }: Props = $props();
-    
+    const { children, variant = 'base', icon, class: cls, ...props }: Props = $props();
+
     const rippleAction = (node: HTMLElement, props?: RippleActionProps) => {
         let ret: ReturnType<typeof ripple> | null = null;
         if (!props?.disabled) {
@@ -48,7 +49,7 @@
 
 <button
     {...props}
-    class="c-button c-button--{variant}{cls ? ` ${cls}` : ''}"
+    class="c-button c-button--{variant}{icon ? ' c-button--icon': ''}{cls ? ` ${cls}` : ''}"
     use:rippleAction={{ disabled: props.disabled ?? undefined, color: `var(--theme-${variant}-ripple)` }}
 >
     {@render children?.()}

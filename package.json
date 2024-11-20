@@ -12,6 +12,7 @@
   "devDependencies": {
     "@altv/types-webview": "^16.2.1",
     "@baetheus/fun": "npm:@jsr/baetheus__fun",
+    "@iconify-json/heroicons": "^1.2.1",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.4",
     "@types/node": "^22.9.0",

@@ -1,10 +1,33 @@
 @layer base {
-	:root {
-		--theme-tw-primary: 213.2 99.2% 48.2%;
-		--theme-tw-primary-2: 213.2 99.2% 53.2%;
-		--theme-tw-primary-border: 213.2 99.2% 54.2%;
-		--theme-tw-primary-hover: 213.2 99.2% 51.2%;
-		--theme-tw-primary-active: 213.2 99.2% 52.2%;
-		--theme-tw-primary-fg: 0 0% 100%;
-	}
+    :root {
+        --theme-tw-base-1: 202 30% 12%;
+        --theme-tw-base-2: 202 30% 16%;
+        --theme-tw-base-3: 202 30% 18%;
+        --theme-tw-base-4: 202 30% 20%;
+        --theme-tw-base-5: 202 30% 22%;
+        --theme-tw-base-disabled: 202 30% 14%;
+        --theme-tw-base-border: 202 30% 24%;
+        --theme-tw-base-border-disabled: 202 30% 29%;
+        --theme-tw-base-hover: 202 30% 24%;
+        --theme-tw-base-active: 202 30% 26%;
+        --theme-tw-base-fg-1: 198 10% 100%;
+        --theme-tw-base-fg-2: 198 10% 80%;
+        --theme-tw-base-fg-3: 198 10% 65%;
+        --theme-tw-base-fg-4: 198 10% 55%;
+        --theme-tw-base-fg-5: 198 10% 45%;
+        --theme-tw-base-fg-disabled: 202 30% 55%;
+        --theme-tw-base-fg-hover: 202 30% 25%;
+        --theme-tw-base-fg-active: 202 30% 75%;
+
+        --theme-tw-primary: 213.2 99.2% 48.2%;
+        --theme-tw-primary-2: 213.2 99.2% 53.2%;
+        --theme-tw-primary-border: 213.2 99.2% 54.2%;
+        --theme-tw-primary-hover: 213.2 99.2% 51.2%;
+        --theme-tw-primary-active: 213.2 99.2% 52.2%;
+        --theme-tw-primary-fg-1: 202 30% 100%;
+        --theme-tw-primary-fg-2: 202 30% 70%;
+        --theme-tw-primary-fg-3: 202 30% 60%;
+        --theme-tw-primary-fg-4: 202 30% 55%;
+        --theme-tw-primary-fg-5: 202 30% 45%;
+    }
 }

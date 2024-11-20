@@ -5,18 +5,25 @@
         --theme-tw-primary-border: 0 0% 100%;
         --theme-tw-primary-hover: 0 0% 100%;
         --theme-tw-primary-active: 0 0% 100%;
-        --theme-tw-primary-fg: 0 0% 0%;
+        --theme-tw-primary-fg-1: 0 0% 0%;
+        --theme-tw-primary-fg-2: 0 0% 4%;
+        --theme-tw-primary-fg-3: 0 0% 6%;
+        --theme-tw-primary-fg-4: 0 0% 8%;
+        --theme-tw-primary-fg-5: 0 0% 12%;
         --theme-tw-primary-fg-hover: 0 0% 0%;
         --theme-tw-primary-fg-active: 0 0% 0%;
 
-        --theme-tw-base: 0 0% 18%;
-        --theme-tw-base-2: 0 0% 25%;
+        --theme-tw-base-1: 0 0% 15%;
+        --theme-tw-base-2: 0 0% 19%;
+        --theme-tw-base-3: 0 0% 21%;
+        --theme-tw-base-4: 0 0% 23%;
+        --theme-tw-base-5: 0 0% 25%;
         --theme-tw-base-disabled: 0 0% 30%;
         --theme-tw-base-border: 0 0% 24%;
         --theme-tw-base-border-disabled: 0 0% 34%;
-        --theme-tw-base-hover: 0 0% 20%;
-        --theme-tw-base-active: 0 0% 22%;
-        --theme-tw-base-fg: 0 0% 100%;
+        --theme-tw-base-hover: 0 0% 27%;
+        --theme-tw-base-active: 0 0% 28%;
+        --theme-tw-base-fg-1: 0 0% 100%;
         --theme-tw-base-fg-2: 0 0% 80%;
         --theme-tw-base-fg-3: 0 0% 70%;
         --theme-tw-base-fg-disabled: 0 0% 60%;
@@ -28,22 +35,29 @@
         --theme-primary-border: hsl(var(--theme-tw-primary-border));
         --theme-primary-hover: hsl(var(--theme-tw-primary-hover));
         --theme-primary-active: hsl(var(--theme-tw-primary-active));
-        --theme-primary-fg: hsl(var(--theme-tw-primary-fg));
+        --theme-primary-fg-1: hsl(var(--theme-tw-primary-fg-1));
+        --theme-primary-fg-2: hsl(var(--theme-tw-primary-fg-2));
+        --theme-primary-fg-3: hsl(var(--theme-tw-primary-fg-3));
+        --theme-primary-fg-4: hsl(var(--theme-tw-primary-fg-4));
+        --theme-primary-fg-5: hsl(var(--theme-tw-primary-fg-5));
         --theme-primary-fg-hover: hsl(var(--theme-tw-primary-fg-hover));
         --theme-primary-fg-active: hsl(var(--theme-tw-primary-fg-active));
-        --theme-primary-ripple: hsl(var(--theme-tw-primary-fg) / 0.12);
+        --theme-primary-ripple: hsl(var(--theme-tw-primary-fg-1) / 0.12);
 
-        --theme-base: hsl(var(--theme-tw-base));
+        --theme-base-1: hsl(var(--theme-tw-base-1));
         --theme-base-2: hsl(var(--theme-tw-base-2));
+        --theme-base-3: hsl(var(--theme-tw-base-3));
+        --theme-base-4: hsl(var(--theme-tw-base-4));
+        --theme-base-5: hsl(var(--theme-tw-base-5));
         --theme-base-disabled: hsl(var(--theme-tw-base-disabled));
         --theme-base-border: hsl(var(--theme-tw-base-border));
         --theme-base-border-disabled: hsl(var(--theme-tw-base-border-disabled));
         --theme-base-hover: hsl(var(--theme-tw-base-hover));
         --theme-base-active: hsl(var(--theme-tw-base-active));
-        --theme-base-fg: hsl(var(--theme-tw-base-fg));
+        --theme-base-fg-1: hsl(var(--theme-tw-base-fg-1));
         --theme-base-fg-disabled: hsl(var(--theme-tw-base-fg-disabled));
         --theme-base-fg-hover: hsl(var(--theme-tw-base-fg-hover));
         --theme-base-fg-active: hsl(var(--theme-tw-base-fg-active));
-        --theme-base-ripple: hsl(var(--theme-tw-base-fg) / 0.05);
+        --theme-base-ripple: hsl(var(--theme-tw-base-fg-1) / 0.05);
     }
 }
