@@ -9,6 +9,8 @@
     interface Lobby {
         id: number;
         name: string;
+        participantsCount: number;
+        maxParticipants: number;
         participants?: string[];
     }
 
@@ -23,7 +25,6 @@
 
     onMount(() => {
         const getLobbies = (ctx: MessagingContext, value: Lobby[]) => {
-            console.log(JSON.stringify(value));
             lobbies = value;
         };
 
@@ -32,7 +33,6 @@
             id: number,
             value: string[],
         ) => {
-            console.log(id, value);
             const lobby = lobbies.find((a) => a.id === id);
             if (lobby) {
                 lobby.participants = value;
@@ -86,7 +86,6 @@
                         selectedLobbyId =
                             lobby.id === selectedLobbyId ? null : lobby.id;
                         if (selectedLobbyId != null) {
-                            console.log('emit');
                             messaging.publish(
                                 'gamemode-selection.pursuit.getParticipants',
                                 selectedLobbyId,
@@ -100,7 +99,9 @@
                     <span>
                         {lobby.name}
                     </span>
-                    <span>{lobby.participants?.length ?? 0}/16</span>
+                    <span
+                        >{lobby.participantsCount}/{lobby.maxParticipants}</span
+                    >
                 </button>
             {/each}
         </div>
