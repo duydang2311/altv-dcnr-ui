@@ -127,7 +127,17 @@
                     {/if}
                 </ul>
             </div>
-            <Button type="button" variant="primary" class="mt-auto">
+            <Button
+                type="button"
+                variant="primary"
+                class="mt-auto"
+                onclick={() => {
+                    messaging.publish(
+                        'gamemode-selection.pursuit.joinLobby',
+                        selectedLobby.id,
+                    );
+                }}
+            >
                 Join
             </Button>
         {:else}
