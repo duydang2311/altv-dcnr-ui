@@ -1,12 +1,15 @@
 <script lang="ts">
+    import BackgroundBuilder from '$lib/components/BackgroundBuilder.svelte';
     import LifecycleAwareRoute from '$lib/components/LifecycleAwareRoute.svelte';
     import { setRuntime } from '$lib/contexts/runtime';
     import Router, { type Route } from '$lib/router.svelte';
+    import { createBackground } from '$lib/services/background.svelte';
     import { createMessaging } from '$lib/services/messaging';
     import { onMount } from 'svelte';
 
-    setRuntime({
+    const runtime = setRuntime({
         messaging: createMessaging(),
+        background: createBackground(),
     });
 
     onMount(() => {
@@ -36,6 +39,8 @@
         };
     });
 </script>
+
+<BackgroundBuilder types={runtime.background.visible} />
 
 {#each Object.entries(Router.routes) as [route, value] (route)}
     {#if value}

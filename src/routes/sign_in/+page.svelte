@@ -8,7 +8,6 @@
 </script>
 
 <script lang="ts">
-    import AuroraBackground from '$lib/components/AuroraGradient.svelte';
     import Button from '$lib/components/Button.svelte';
     import Spinner from '$lib/components/Spinner.svelte';
     import { useRuntime } from '$lib/contexts/runtime';
@@ -17,7 +16,9 @@
     import Discord from '~icons/custom/discord-black';
     import DiscordSignIn from './DiscordSignIn.svelte';
 
-    const { messaging } = useRuntime();
+    const { messaging, background } = useRuntime();
+    background.use('gradient-1');
+
     let discordUser = $state.raw<DiscordUser | null>(null);
     let status = $state.raw<'pending' | null>(null);
 
@@ -34,9 +35,6 @@
     };
 </script>
 
-<div class="fixed inset-0 bg-black/80"></div>
-<div class="fixed inset-0 bg-primary-active/20"></div>
-<AuroraBackground />
 <div class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
     <div class="overlap overlap-center">
         {#if discordUser == null}
