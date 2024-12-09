@@ -31,10 +31,9 @@
             id: number,
             value: string[],
         ) => {
-            const lobby = lobbies.find((a) => a.id === id);
-            if (lobby) {
-                lobby.participants = value;
-            }
+            lobbies = lobbies.map((a) =>
+                a.id === id ? { ...a, participants: value } : a,
+            );
         };
 
         const playerJoined = (
