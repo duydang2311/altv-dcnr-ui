@@ -32,7 +32,7 @@
             }
         };
 
-        // Router.mount('gamemode_selection');
+        runtime.router.mount('pursuit_countdown', { durationSeconds: 120 });
 
         alt.on('router.mount', mount);
         alt.on('router.unmount', unmount);
@@ -44,6 +44,10 @@
 </script>
 
 <BackgroundBuilder types={runtime.background.visible} />
+
+{#if alt.isBrowser}
+    <div class="fixed inset-0 bg-green-500"></div>
+{/if}
 
 {#each Object.entries(runtime.router.routes) as [route, value] (route)}
     {#if value}

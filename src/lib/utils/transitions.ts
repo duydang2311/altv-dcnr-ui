@@ -32,6 +32,7 @@ export const pageZoom = {
             delay: 0.2,
             opacity: 0,
             duration: 0.2,
+            clearProps: 'scale,opacity',
             ease: 'circ.out',
         }),
     out: (): TsapCallback => (node, gsap) =>

@@ -8,6 +8,7 @@ export default {
             fontFamily: {
                 body: 'var(--font-family-body)',
                 title: 'var(--font-family-title)',
+                number: 'var(--font-family-number)',
             },
             fontSize: {
                 xs: 'var(--font-size-xs)',
@@ -15,6 +16,7 @@ export default {
                 base: 'var(--font-size-base)',
                 lg: 'var(--font-size-lg)',
                 xl: 'var(--font-size-xl)',
+                '2xl': 'var(--font-size-2xl)',
             },
             colors: {
                 primary: {

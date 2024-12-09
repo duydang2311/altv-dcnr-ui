@@ -1,7 +1,6 @@
-import { create } from 'mutative';
 import type { SvelteComponent } from 'svelte';
 
-export type Route = 'sign_in' | 'gamemode_selection' | (string & {});
+export type Route = 'sign_in' | 'gamemode_selection' | 'pursuit_countdown';
 
 export interface Router {
     get routes(): {

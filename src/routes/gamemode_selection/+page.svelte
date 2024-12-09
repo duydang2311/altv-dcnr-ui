@@ -22,7 +22,7 @@
 </script>
 
 <div
-    class="fixed inset-0"
+    class="fixed size-full"
     in:tsap={pageZoom.in()}
     out:tsap|global={pageZoom.out()}
 >
@@ -30,7 +30,7 @@
         <div
             in:tsap={pageZoom.in()}
             out:tsap={pageZoom.out()}
-            class="fixed flex size-full p-20"
+            class="absolute flex inset-0 p-20"
         >
             <GamemodeCard
                 src="https://images.hdqwalls.com/download/chase-by-police-4k-wv-2880x1800.jpg"
@@ -58,7 +58,7 @@
         <div
             in:tsap={pageZoom.in()}
             out:tsap={pageZoom.out()}
-            class="fixed size-full"
+            class="absolute inset-0"
         >
             <Pursuit />
         </div>
