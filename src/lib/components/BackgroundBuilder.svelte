@@ -17,14 +17,15 @@
 
 {#each types as type (type)}
     <div
-        in:tsap|global={(node, gsap) =>
-            gsap.from(node, { opacity: 0, duration: 0.2, ease: 'circ.out' })}
-        out:tsap|global={(node, gsap) =>
+        in:tsap={(node, gsap) =>
+            gsap.from(node, { opacity: 0, duration: 0.4, ease: 'circ.out' })}
+        out:tsap={(node, gsap) =>
             gsap.to(node, {
                 opacity: 0,
-                duration: 0.2,
-                ease: 'circ',
+                duration: 0.4,
+                ease: 'circ.out',
             })}
+        class="fixed"
     >
         {@render snippets[type]()}
     </div>

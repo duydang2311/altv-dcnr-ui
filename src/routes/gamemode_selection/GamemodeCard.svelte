@@ -1,5 +1,4 @@
 <script lang="ts">
-    import gsap from 'gsap';
     const {
         src,
         text,
@@ -10,15 +9,7 @@
 <button
     type="button"
     class="flex-1 h-full parallelogram p-px transition duration-75 ease-in-out bg-transparent hover:bg-primary active:scale-95"
-    onclick={(e) => {
-        const tl = gsap.timeline();
-        tl.to(e.currentTarget, {
-            scale: 1.1,
-            ease: 'back.in',
-            duration: 0.8,
-        });
-        onClick();
-    }}
+    onclick={onClick}
 >
     <div class="relative h-full parallelogram group">
         <img

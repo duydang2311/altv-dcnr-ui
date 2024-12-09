@@ -1,4 +1,4 @@
-import { onDestroy } from 'svelte';
+import { onDestroy, onMount } from 'svelte';
 
 export type BackgroundType = 'gradient-1';
 
@@ -17,8 +17,6 @@ export const createBackground = (): Background => {
     );
     const toggle: Background['toggle'] = (type, toggle) => {
         const count = backgroundCounts[type] ?? 0;
-        if (toggle) {
-        }
         backgroundCounts = {
             ...backgroundCounts,
             [type]: count + (toggle ? 1 : -1),
@@ -29,9 +27,11 @@ export const createBackground = (): Background => {
             return visible;
         },
         use: (type) => {
-            toggle(type, true);
-            onDestroy(() => {
-                toggle(type, false);
+            onMount(() => {
+                toggle(type, true);
+                return () => {
+                    toggle(type, false);
+                };
             });
         },
         toggle: (type, on) => {

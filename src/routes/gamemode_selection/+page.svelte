@@ -1,26 +1,35 @@
 <script lang="ts">
     import { useRuntime } from '$lib/contexts/runtime';
-    import { tsap } from '$lib/utils/transitions';
+    import { pageZoom, tsap } from '$lib/utils/transitions';
     import GamemodeCard from './GamemodeCard.svelte';
     import Pursuit from './Pursuit.svelte';
 
     type Gamemode = 'pursuit' | 'freeroam' | 'shooting';
 
-    const { background } = useRuntime();
+    const { router, background, shortcut } = useRuntime();
+
     background.use('gradient-1');
+
+    shortcut('escape', () => {
+        if (gamemode != null) {
+            gamemode = null;
+        } else {
+            router.unmount('gamemode_selection');
+        }
+    });
 
     let gamemode = $state.raw<Gamemode | null>(null);
 </script>
 
-<div>
+<div
+    class="fixed inset-0"
+    in:tsap={pageZoom.in()}
+    out:tsap|global={pageZoom.out()}
+>
     {#if gamemode == null}
         <div
-            out:tsap={(node, gsap) =>
-                gsap.to(node, {
-                    left: '-100%',
-                    duration: 0.6,
-                    ease: 'circ.inOut',
-                })}
+            in:tsap={pageZoom.in()}
+            out:tsap={pageZoom.out()}
             class="fixed flex size-full p-20"
         >
             <GamemodeCard
@@ -47,19 +56,8 @@
         </div>
     {:else if gamemode === 'pursuit'}
         <div
-            in:tsap={(node, gsap) =>
-                gsap.from(node, {
-                    left: '100%',
-                    duration: 0.6,
-                    ease: 'circ.inOut',
-                })}
-            out:tsap|global={(node, gsap) =>
-                gsap.to(node, {
-                    scale: 0.9,
-                    opacity: 0,
-                    duration: 0.15,
-                    ease: 'circ.in',
-                })}
+            in:tsap={pageZoom.in()}
+            out:tsap={pageZoom.out()}
             class="fixed size-full"
         >
             <Pursuit />
