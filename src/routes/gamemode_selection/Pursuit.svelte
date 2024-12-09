@@ -2,9 +2,7 @@
     import Button from '$lib/components/Button.svelte';
     import { useRuntime } from '$lib/contexts/runtime';
     import type { MessagingContext } from '$lib/services/messaging';
-    import { tsap } from '$lib/utils/transitions';
     import { onMount } from 'svelte';
-    import Play from '~icons/heroicons/play-16-solid';
 
     interface Lobby {
         id: number;
@@ -15,7 +13,7 @@
     }
 
     const { messaging } = useRuntime();
-    let lobbies = $state<Lobby[]>([]);
+    let lobbies = $state.raw<Lobby[]>([]);
     let selectedLobbyId = $state.raw<number | null>(null);
     const selectedLobby = $derived(
         selectedLobbyId == null
@@ -24,12 +22,12 @@
     );
 
     onMount(() => {
-        const getLobbies = (ctx: MessagingContext, value: Lobby[]) => {
+        const getLobbies = (_: MessagingContext, value: Lobby[]) => {
             lobbies = value;
         };
 
         const getParticipants = (
-            ctx: MessagingContext,
+            _: MessagingContext,
             id: number,
             value: string[],
         ) => {
@@ -39,11 +37,30 @@
             }
         };
 
+        const playerJoined = (
+            _: MessagingContext,
+            dto: { lobbyId: number; name: string },
+        ) => {
+            lobbies = lobbies.map((a) =>
+                a.id === dto.lobbyId
+                    ? {
+                          ...a,
+                          participants: [...(a.participants ?? []), dto.name],
+                          participantsCount: a.participantsCount + 1,
+                      }
+                    : a,
+            );
+        };
+
         const cleanups = [
             messaging.on('gamemode-selection.pursuit.getLobbies', getLobbies),
             messaging.on(
                 'gamemode-selection.pursuit.getParticipants',
                 getParticipants,
+            ),
+            messaging.on(
+                'gamemode-selection.pursuit.playerJoined',
+                playerJoined,
             ),
         ];
 
