@@ -4,12 +4,15 @@
     import { setRuntime } from '$lib/contexts/runtime';
     import { createRouter, type Route } from '$lib/services/router.svelte';
     import { createBackground } from '$lib/services/background.svelte';
-    import { createMessaging } from '$lib/services/messaging';
+    import {
+        createLifecycleAwareMessaging,
+        createMessaging,
+    } from '$lib/services/messaging';
     import { createShortcut } from '$lib/services/shortcut';
     import { onMount } from 'svelte';
 
     const runtime = setRuntime({
-        messaging: createMessaging(),
+        messaging: createLifecycleAwareMessaging(),
         background: createBackground(),
         shortcut: createShortcut(),
         router: createRouter(),
@@ -32,7 +35,7 @@
             }
         };
 
-        runtime.router.mount('pursuit_countdown', { durationSeconds: 120 });
+        runtime.router.mount('chat');
 
         alt.on('router.mount', mount);
         alt.on('router.unmount', unmount);

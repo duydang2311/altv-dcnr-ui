@@ -1,6 +1,10 @@
 import type { SvelteComponent } from 'svelte';
 
-export type Route = 'sign_in' | 'gamemode_selection' | 'pursuit_countdown';
+export type Route =
+    | 'sign_in'
+    | 'gamemode_selection'
+    | 'pursuit_countdown'
+    | 'chat';
 
 export interface Router {
     get routes(): {

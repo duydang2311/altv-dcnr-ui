@@ -27,7 +27,7 @@
     }
 
     :root {
-        font-size: calc(1.25vmin + 0.5vmax);
+        font-size: calc(1.25vmin + 0.4vmax);
         line-height: 1;
 
         cursor: default;
